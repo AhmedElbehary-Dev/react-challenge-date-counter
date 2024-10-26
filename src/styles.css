@@ -1,0 +1,22 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.step-container {
+  margin-bottom: 10px;
+}
+
+.count-container {
+  margin-bottom: 20px;
+}
+
+.step-decrement,
+.count-decrement {
+  margin-right: 10px;
+}
+
+.step-increment,
+.count-increment {
+  margin-left: 10px;
+}
