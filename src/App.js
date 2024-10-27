@@ -18,50 +18,41 @@ function Counter() {
     date.setDate(date.getDate() + offset); // Adjust the date by the offset
     return date;
   }
-  function handleStepIncrement() {
-    setSteps((s) => s + 1);
-  }
-  function handleStepDecrement() {
-    setSteps((s) => s - 1);
-  }
-  function handleCountIncrement() {
-    setCount((c) => c + 1 * step);
-  }
-  function handleCountDecrement() {
-    setCount((c) => c - 1 * step);
-  }
 
   return (
     <>
       <div className="step-container">
-        <button className="step-decrement" onClick={handleStepDecrement}>
+        <button className="step-decrement" onClick={()=>{setSteps((s) => s - 1)}}>
           -
         </button>
         <span>{`Step: ${step}`}</span>
-        <button className="step-increment" onClick={handleStepIncrement}>
+        <button className="step-increment" onClick={()=>{setSteps((s) => s + 1)}}>
           +
         </button>
       </div>
       <div className="count-container">
-        <button className="count-decrement" onClick={handleCountDecrement}>
+        <button
+          className="count-decrement"
+          onClick={()=>{setCount((c) => c - 1 * step)}}
+        >
           -
         </button>
         <span>{`Count: ${count}`}</span>
-        <button className="count-increment" onClick={handleCountIncrement}>
+        <button
+          className="count-increment"
+          onClick={()=>{setCount((c) => c + 1 * step)}}
+        >
           +
         </button>
       </div>
       <div>
-        <p>
+      <p>
           {count < 0
-            ? `${Math.abs(count)} days ago was ${getRelativeDate(
-                count
-              ).toDateString()}`
+            ? `${Math.abs(count)} days ago was `
             : count === 0
-            ? `Today is ${getRelativeDate(count).toDateString()}`
-            : `${count} days from today is ${getRelativeDate(
-                count
-              ).toDateString()}`}
+            ? `Today is `
+            : `${count} days from today is `}
+          <span>{`${getRelativeDate(count).toDateString()}`}</span>
         </p>
       </div>
     </>
